@@ -46,6 +46,7 @@ export default class ModalDropdown extends Component {
     adjustFrame: PropTypes.func,
     renderRow: PropTypes.func,
     renderSeparator: PropTypes.func,
+    renderButtonText: PropTypes.func,
 
     onDropdownWillShow: PropTypes.func,
     onDropdownWillHide: PropTypes.func,
@@ -163,7 +164,7 @@ export default class ModalDropdown extends Component {
             <View style={styles.button}>
               <Text style={[styles.buttonText, this.props.textStyle]}
                     numberOfLines={1}>
-                {this.state.buttonText}
+                {this.props.renderButtonText ? this.props.renderButtonText(this.state.buttonText) : this.state.buttonText}
               </Text>
             </View>
           )
