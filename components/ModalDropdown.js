@@ -162,10 +162,13 @@ export default class ModalDropdown extends Component {
           this.props.children ||
           (
             <View style={styles.button}>
-              <Text style={[styles.buttonText, this.props.textStyle]}
-                    numberOfLines={1}>
-                {this.props.renderButtonText ? this.props.renderButtonText(this.state.buttonText) : this.state.buttonText}
-              </Text>
+              { this.props.renderButtonText ?
+                this.props.renderButtonText(this.state.buttonText)
+                :
+                <Text style={[styles.buttonText, this.props.textStyle]} numberOfLines={1}>
+                  {this.state.buttonText}
+                </Text>
+              }
             </View>
           )
         }
